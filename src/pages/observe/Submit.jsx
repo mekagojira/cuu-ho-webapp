@@ -34,7 +34,7 @@ export function Submit({ setGps }) {
   const [phone, setPhone] = useState('')
   const [phone1, setPhone1] = useState('')
   const [address, setAddress] = useState('')
-  const [region, setRegion] = useState(regions[0])
+  const [qty, setQty] = useState(0)
   const [assists, setAssists] = useState({})
   const [elderly, setElderly] = useState({})
 
@@ -71,6 +71,8 @@ export function Submit({ setGps }) {
         }}>
         <Input i="phone" v={phone} onChange={setPhone} label={'SĐT LIÊN HỆ 1'} placeholder={'Nhập SĐT LIÊN HỆ 1'} />
         <Input i="phone1" v={phone1} onChange={setPhone1} label={'SĐT LIÊN HỆ 2'} placeholder={'Nhập SĐT LIÊN HỆ 2'} />
+
+        <Input i="phone1" v={qty} onChange={setQty} label={'Số người cần hỗ trợ'} placeholder={'Số người cần hỗ trợ'} />
 
         <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} textarea />
 
