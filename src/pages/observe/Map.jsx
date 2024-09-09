@@ -1,6 +1,14 @@
 import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import { useEffect, useState } from 'react'
+import L from 'leaflet'
+
+// Custom icon
+const CurrentLocation = L.icon({
+  iconUrl: '/current.png', // Replace with your image path
+  iconSize: [20, 20], // Size of the icon
+  iconAnchor: [20, 20], // Point of the icon which will correspond to marker's location
+})
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window
@@ -41,11 +49,8 @@ export default function Map({ gps }) {
         <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <MapControl gps={gps} />
         {myGps && (
-          <Marker position={myGps}>
-            13123hkj
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
+          <Marker position={myGps} icon={CurrentLocation}>
+            <Popup>Địa chỉ của bạn:</Popup>
           </Marker>
         )}
       </MapContainer>
