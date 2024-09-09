@@ -7,7 +7,8 @@ export function Submit() {
 
   return (
     <div className="p-2">
-      <h1 className="font-bold text-lg uppercase">SOS-Thái Nguyên</h1>
+      <h1 className="font-bold text-3xl uppercase">SOS-Thái Nguyên</h1>
+      <div className="py-4" />
       <form className="block">
         <label htmlFor="input" className="text-slate-400 font-bold">
           Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).
