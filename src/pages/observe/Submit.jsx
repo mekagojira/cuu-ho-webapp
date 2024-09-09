@@ -40,23 +40,17 @@ export function Submit({ setGps }) {
 
   const getGps = () => {
     if (navigator.geolocation) {
-      // get the current users location
       navigator.geolocation.getCurrentPosition(
         position => {
-          // save the geolocation coordinates in two variables
           const { latitude, longitude } = position.coords
-          // update the value of userlocation variable
           setGps({ x: latitude, y: longitude })
         },
-        // if there was an error getting the users location
         error => {
-          console.error('Error getting user location:', error)
+          console.error('Có lỗi khi lấy GPS:', error)
         }
       )
-    }
-    // if geolocation is not supported by the users browser
-    else {
-      console.error('Geolocation is not supported by this browser.')
+    } else {
+      alert('Thiết bị của bạn không hỗ trợ GPS')
     }
   }
 
