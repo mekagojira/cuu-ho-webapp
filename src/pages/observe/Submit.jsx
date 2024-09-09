@@ -1,6 +1,15 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 
+function Checkbox({ checked, onChange, label }) {
+  return (
+    <div className="flex items-center">
+      <input type="checkbox" checked={checked} onChange={onChange} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
+      <label className="ml-2 text-gray-700">{label}</label>
+    </div>
+  )
+}
+
 function Input({ v, onChange, i, label, placeholder, textarea }) {
   return (
     <div className="my-1">
@@ -25,6 +34,7 @@ export function Submit({ setGps }) {
   const [phone, setPhone] = useState('')
   const [address, setAddress] = useState('')
   const [region, setRegion] = useState(regions[0])
+  const [assists, setAssists] = useState({})
 
   const getGps = () => {
     if (navigator.geolocation) {
@@ -60,6 +70,16 @@ export function Submit({ setGps }) {
         <Input i="phone" v={phone} onChange={setPhone} label={'SĐT LIÊN HỆ'} placeholder={'Nhập SĐT LIÊN HỆ'} />
         <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} textarea />
         <Input i="phone" v={detail} onChange={setDetail} label={'Nội dung cứu hộ'} placeholder={'Nội dung cứu hộ'} textarea />
+
+        <div className="py-1">
+          <h2 className="text-lg font-semibold mb-2">Hỗ trợ cần thiết:</h2>
+          {assistanceNeeded.map((item, index) => (
+            <div key={index} className="flex items-center mb-2">
+              <input type="checkbox" name={item} checked={assists[item] || false} onChange={() => setAssists({ ...assists, [item]: true })} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
+              <label className="ml-2 text-gray-700">{item}</label>
+            </div>
+          ))}
+        </div>
 
         <div className="py-2" />
         <div>Khu vực bạn ở?</div>
