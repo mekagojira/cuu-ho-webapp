@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 
-function Checkbox({ checked, onChange, label, num }) {
+function Checkbox({ checked, onChange, label }) {
   return (
     <div className="flex items-center">
       <input type="checkbox" checked={checked} onChange={onChange} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
@@ -10,7 +10,7 @@ function Checkbox({ checked, onChange, label, num }) {
   )
 }
 
-function Input({ v, onChange, i, label, placeholder, textarea }) {
+function Input({ v, onChange, i, label, placeholder, textarea, num }) {
   return (
     <div className="my-1">
       <label htmlFor={i} className="text-slate-900">
