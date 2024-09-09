@@ -1,10 +1,10 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 
-function Checkbox({ checked, onChange, label }) {
+function Checkbox({ checked, onChange, label, num }) {
   return (
     <div className="flex items-center">
-      <input type="checkbox" checked={checked} onChange={onChange} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
+      <input type="checkbox" checked={checked} onChange={onChange} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" type={num ? 'number' : 'text'} />
       <label className="ml-2 text-gray-700">{label}</label>
     </div>
   )
@@ -72,7 +72,7 @@ export function Submit({ setGps }) {
         <Input i="phone" v={phone} onChange={setPhone} label={'SĐT LIÊN HỆ 1'} placeholder={'Nhập SĐT LIÊN HỆ 1'} />
         <Input i="phone1" v={phone1} onChange={setPhone1} label={'SĐT LIÊN HỆ 2'} placeholder={'Nhập SĐT LIÊN HỆ 2'} />
 
-        <Input i="phone1" v={qty} onChange={setQty} label={'Số người cần hỗ trợ'} placeholder={'Số người cần hỗ trợ'} />
+        <Input num i="phone1" v={qty} onChange={setQty} label={'Số người cần hỗ trợ'} placeholder={'Số người cần hỗ trợ'} />
 
         <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} textarea />
 
