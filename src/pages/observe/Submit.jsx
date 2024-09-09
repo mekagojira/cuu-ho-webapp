@@ -42,11 +42,13 @@ export function Submit() {
         <input id="input" className="w-full px-3 py-2 rounded border " placeholder="Nhập thông tin cứu hộ" />
         <div className="py-2" />
         <div>Khu vực bạn ở?</div>
-        <div className="flex space-x-4 space-y-4 flex-wrap">
+        <div className="flex space-x-4 flex-wrap">
           {regions.map((item, i) => (
-            <button key={i} className={classNames('font-bold rounded uppercase px-3 py-2 border', region === item ? 'bg-red-500 border-red-500 text-white' : 'bg-white text-black border-slate-500')} onClick={() => setRegion(item)}>
-              {item}
-            </button>
+            <div key={i} className="py-1">
+              <button className={classNames('font-bold rounded uppercase px-3 py-2 border', region === item ? 'bg-red-500 border-red-500 text-white' : 'bg-white text-black border-slate-500')} onClick={() => setRegion(item)}>
+                {item}
+              </button>
+            </div>
           ))}
           <input placeholder="Nhập khu vực của bạn" className="px-3 py-2 rounded border border-slate-500" />
         </div>
