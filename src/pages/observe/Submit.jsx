@@ -52,10 +52,18 @@ export function Submit({ setGps }) {
           ))}
           <input placeholder="Nhập khu vực của bạn" className="px-3 py-2 rounded border border-slate-500" />
         </div>
-        <div className="py-2" />
-        <button onClick={getGps} className="rounded font-bold px-3 py-2 bg-slate-200">
-          LẤY THÔNG TIN TỌA ĐỘ
-        </button>
+        <div className="py-1" />
+        <div>
+          <button onClick={getGps} className="rounded font-bold px-3 py-2 bg-slate-200">
+            LẤY THÔNG TIN TỌA ĐỘ
+          </button>
+        </div>
+        <div className="py-1" />
+        <div>
+          <button type="submit" className="px-3 py-2 uppercase font-bold rounded shadow bg-blue-500 text-white">
+            GỬI LÊN
+          </button>
+        </div>
       </form>
     </div>
   )
