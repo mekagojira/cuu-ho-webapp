@@ -4,7 +4,7 @@ import { useState } from 'react'
 function Checkbox({ checked, onChange, label, num }) {
   return (
     <div className="flex items-center">
-      <input type="checkbox" checked={checked} onChange={onChange} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" type={num ? 'number' : 'text'} />
+      <input type="checkbox" checked={checked} onChange={onChange} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
       <label className="ml-2 text-gray-700">{label}</label>
     </div>
   )
@@ -17,9 +17,9 @@ function Input({ v, onChange, i, label, placeholder, textarea }) {
         {label}
       </label>
       {textarea ? (
-        <textarea value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} />
+        <textarea value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} type={num ? 'number' : 'text'} />
       ) : (
-        <input value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} />
+        <input value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} type={num ? 'number' : 'text'} />
       )}
     </div>
   )
