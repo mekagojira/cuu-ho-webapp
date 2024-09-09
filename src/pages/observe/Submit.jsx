@@ -50,7 +50,7 @@ export function Submit({ setGps }) {
       <h1 className="font-bold text-3xl uppercase">congdongcuuho</h1>
       <div className="py-4" />
       <form
-        className="block"
+        className="block bg-white rounded px-3 py-5 shadow"
         onSubmit={e => {
           e.preventDefault()
         }}>

@@ -7,10 +7,16 @@ export default function Observe() {
   const [gps, setGps] = useState({})
 
   return (
-    <div className="p-2 mx-auto container">
-      <Submit gps={gps} setGps={setGps} />
+    <div className="p-2">
+      <div className="mx-auto container">
+        <Submit gps={gps} setGps={setGps} />
+      </div>
+      <div className="pt-8" />
       <Map gps={gps} setGps={setGps} />
-      <List />
+      <div className="pt-8" />
+      <div className="mx-auto container">
+        <List />
+      </div>
     </div>
   )
 }
