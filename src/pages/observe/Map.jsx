@@ -6,7 +6,7 @@ import L from 'leaflet'
 // Custom icon
 const CurrentLocation = L.icon({
   iconUrl: '/current.png', // Replace with your image path
-  iconSize: [20, 20], // Size of the icon
+  iconSize: [50, 50], // Size of the icon
   iconAnchor: [20, 20], // Point of the icon which will correspond to marker's location
 })
 
