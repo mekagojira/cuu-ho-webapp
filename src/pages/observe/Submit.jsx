@@ -74,7 +74,7 @@ export function Submit({ setGps }) {
 
         <Input num i="phone1" v={qty} onChange={setQty} label={'Số người cần hỗ trợ'} placeholder={'Số người cần hỗ trợ'} />
 
-        <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} textarea />
+        <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể'} placeholder={'Nhập thông tin cứu hộ'} textarea />
 
         <div className="py-1">
           <h2 className="text-lg font-semibold mb-2">Có người già/người khuyết tật không:</h2>

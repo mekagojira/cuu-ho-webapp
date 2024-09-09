@@ -42,6 +42,7 @@ export default function Map({ gps }) {
         <MapControl gps={gps} />
         {myGps && (
           <Marker position={myGps}>
+            13123hkj
             <Popup>
               A pretty CSS3 popup. <br /> Easily customizable.
             </Popup>
