@@ -4,7 +4,7 @@ const HOST = 'https://api.congdongcuuho.vn'
 
 const call = async opts => {
   try {
-    const { data: response } = await axios(call)
+    const { data: response } = await axios(opts)
 
     return response
   } catch (e) {
