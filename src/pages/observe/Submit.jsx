@@ -19,7 +19,7 @@ function Input({ v, onChange, i, label, placeholder, textarea, num }) {
         {label}
       </label>
       {textarea ? (
-        <textarea value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} type={num ? 'number' : 'text'} />
+        <textarea value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border border-slate-300" placeholder={placeholder || label || ''} type={num ? 'number' : 'text'} />
       ) : (
         <input value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} type={num ? 'number' : 'text'} />
       )}
@@ -57,7 +57,7 @@ export function Submit({ setGps }) {
       <h1 className="font-bold text-3xl uppercase">congdongcuuho</h1>
       <div className="py-4" />
       <form
-        className="block bg-white rounded px-3 py-5 shadow"
+        className="block bg-white rounded px-3 py-5 border border-slate-300"
         onSubmit={e => {
           e.preventDefault()
         }}>
@@ -72,7 +72,7 @@ export function Submit({ setGps }) {
           <h2 className="text-lg font-semibold mb-2">Có người già/người khuyết tật không:</h2>
           {elderlyOrDisabled.map((item, index) => (
             <div key={index} className="flex items-center mb-2">
-              <input type="checkbox" name={item} checked={elderly[item] || false} onChange={() => setElderly({ ...assists, [item]: true })} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
+              <input type="checkbox" name={item} checked={elderly[item] || false} onChange={() => setElderly({ ...assists, [item]: true })} className="w-5 h-5 text-blue-600 border-slate-300 rounded focus:ring-blue-500 focus:ring-2" />
               <label className="ml-2 text-gray-700">{item}</label>
             </div>
           ))}

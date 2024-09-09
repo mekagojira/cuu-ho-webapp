@@ -3,7 +3,7 @@ import Observe from './pages/observe/Observe'
 
 function App() {
   return (
-    <div className="min-h-screen bg-slate-100">
+    <div className="min-h-screen App">
       <Observe />
     </div>
   )
