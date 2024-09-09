@@ -17,6 +17,9 @@ function Input({ v, onChange, i, label, placeholder, textarea }) {
 }
 
 export function Submit({ setGps }) {
+  const elderlyOrDisabled = ['Người già', 'Người khuyết tật']
+  const assistanceNeeded = ['Tôi cần cứu hộ áo phao', 'Tôi cần cứu hộ thực phẩm', 'Tôi cần cứu hộ y tế', 'Khác']
+
   const regions = ['Thái Nguyên', 'Phú Thọ']
   const [detail, setDetail] = useState('')
   const [phone, setPhone] = useState('')
