@@ -32,9 +32,11 @@ export function Submit({ setGps }) {
   const regions = ['Thái Nguyên', 'Phú Thọ']
   const [detail, setDetail] = useState('')
   const [phone, setPhone] = useState('')
+  const [phone1, setPhone1] = useState('')
   const [address, setAddress] = useState('')
   const [region, setRegion] = useState(regions[0])
   const [assists, setAssists] = useState({})
+  const [elderly, setElderly] = useState({})
 
   const getGps = () => {
     if (navigator.geolocation) {
@@ -67,9 +69,21 @@ export function Submit({ setGps }) {
         onSubmit={e => {
           e.preventDefault()
         }}>
-        <Input i="phone" v={phone} onChange={setPhone} label={'SĐT LIÊN HỆ'} placeholder={'Nhập SĐT LIÊN HỆ'} />
+        <Input i="phone" v={phone} onChange={setPhone} label={'SĐT LIÊN HỆ 1'} placeholder={'Nhập SĐT LIÊN HỆ 1'} />
+        <Input i="phone1" v={phone1} onChange={setPhone1} label={'SĐT LIÊN HỆ 2'} placeholder={'Nhập SĐT LIÊN HỆ 2'} />
+
         <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} textarea />
         <Input i="phone" v={detail} onChange={setDetail} label={'Nội dung cứu hộ'} placeholder={'Nội dung cứu hộ'} textarea />
+
+        <div className="py-1">
+          <h2 className="text-lg font-semibold mb-2">Có người già/người khuyết tật không:</h2>
+          {elderlyOrDisabled.map((item, index) => (
+            <div key={index} className="flex items-center mb-2">
+              <input type="checkbox" name={item} checked={elderly[item] || false} onChange={() => setElderly({ ...assists, [item]: true })} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
+              <label className="ml-2 text-gray-700">{item}</label>
+            </div>
+          ))}
+        </div>
 
         <div className="py-1">
           <h2 className="text-lg font-semibold mb-2">Hỗ trợ cần thiết:</h2>
