@@ -1,14 +1,16 @@
-import classNames from 'classnames'
 import { useState } from 'react'
 
-function Checkbox({ checked, onChange, label }) {
-  return (
-    <div className="flex items-center">
-      <input type="checkbox" checked={checked} onChange={onChange} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
-      <label className="ml-2 text-gray-700">{label}</label>
-    </div>
-  )
-}
+const elderlyOrDisabled = ['Người già', 'Người khuyết tật']
+const assistanceNeeded = ['Tôi cần cứu hộ áo phao', 'Tôi cần cứu hộ thực phẩm', 'Tôi cần cứu hộ y tế', 'Khác']
+
+// function Checkbox({ checked, onChange, label }) {
+//   return (
+//     <div className="flex items-center">
+//       <input type="checkbox" checked={checked} onChange={onChange} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
+//       <label className="ml-2 text-gray-700">{label}</label>
+//     </div>
+//   )
+// }
 
 function Input({ v, onChange, i, label, placeholder, textarea, num }) {
   return (
@@ -26,10 +28,6 @@ function Input({ v, onChange, i, label, placeholder, textarea, num }) {
 }
 
 export function Submit({ setGps }) {
-  const elderlyOrDisabled = ['Người già', 'Người khuyết tật']
-  const assistanceNeeded = ['Tôi cần cứu hộ áo phao', 'Tôi cần cứu hộ thực phẩm', 'Tôi cần cứu hộ y tế', 'Khác']
-
-  const regions = ['Thái Nguyên', 'Phú Thọ']
   const [detail, setDetail] = useState('')
   const [phone, setPhone] = useState('')
   const [phone1, setPhone1] = useState('')
