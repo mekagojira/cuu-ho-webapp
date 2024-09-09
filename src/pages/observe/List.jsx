@@ -102,7 +102,8 @@ export default function List() {
 
   return (
     <div className="py-4 px-2">
-      DANH SÁCH CỨU HỘ
+      <h2 className="font-bold text-lg">DANH SÁCH CỨU HỘ</h2>
+      <div className="pt-2" />
       <Table head={tableHead} rows={listHelps} refresh={fetch} />
     </div>
   )
