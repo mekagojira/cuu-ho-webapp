@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 
-export function Submit() {
+export function Submit({ setGps }) {
   const regions = ['Thái Nguyên', 'Phú Thọ']
   const [region, setRegion] = useState(regions[0])
 
@@ -13,7 +13,7 @@ export function Submit() {
           // save the geolocation coordinates in two variables
           const { latitude, longitude } = position.coords
           // update the value of userlocation variable
-          console.log({ latitude, longitude })
+          setGps({ x: latitude, y: longitude })
         },
         // if there was an error getting the users location
         error => {
