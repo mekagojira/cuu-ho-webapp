@@ -1,9 +1,22 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 
+function Input({ v, onChange, i, label, placeholder }) {
+  return (
+    <div className="my-1">
+      <label htmlFor={i} className="text-slate-900">
+        {label}
+      </label>
+      <input value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} />
+    </div>
+  )
+}
+
 export function Submit({ setGps }) {
   const regions = ['Thái Nguyên', 'Phú Thọ']
   const [detail, setDetail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [address, setAddress] = useState('')
   const [region, setRegion] = useState(regions[0])
 
   const getGps = () => {
@@ -37,10 +50,10 @@ export function Submit({ setGps }) {
         onSubmit={e => {
           e.preventDefault()
         }}>
-        <label htmlFor="input" className="text-slate-900 font-bold">
-          Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).
-        </label>
-        <input value={detail} onChange={e => setDetail(e.target.val)} id="input" className="w-full px-3 py-2 rounded border " placeholder="Nhập thông tin cứu hộ" />
+        <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} />
+        <Input i="phone" v={phone} onChange={setPhone} label={'SĐT LIÊN HỆ'} placeholder={'Nhập SĐT LIÊN HỆ'} />
+        <Input i="phone" v={detail} onChange={setDetail} label={'Nội dung cứu hộ'} placeholder={'Nội dung cứu hộ'} />
+
         <div className="py-2" />
         <div>Khu vực bạn ở?</div>
         <div className="flex space-x-4 flex-wrap">
