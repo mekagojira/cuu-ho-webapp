@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import { listArticles } from '../../lib/request/request'
+
 function Table({ head, rows }) {
   return (
     <div className="border rounded bg-white shadow-md">
@@ -28,6 +31,12 @@ function Table({ head, rows }) {
 }
 
 export default function List() {
+  const fetch = async () => {
+    console.log(await listArticles({}))
+  }
+  useEffect(() => {
+    fetch()
+  }, [])
   const tableHead = ['SĐT LIÊN HỆ', 'Địa chỉ', 'Nội dung', 'Trạng thái']
 
   const tableRows = [

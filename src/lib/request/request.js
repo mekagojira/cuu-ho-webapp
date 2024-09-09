@@ -12,7 +12,7 @@ const call = async opts => {
   }
 }
 
-export const listArticles = ({ keyword, status, page = 1, pageSize = 50 }) =>
+export const listArticles = ({ keyword = '', status, page = 1, pageSize = 50 }) =>
   call({
     method: 'get',
     url: `${HOST}/article`,
