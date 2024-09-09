@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 export function Submit({ setGps }) {
   const regions = ['Thái Nguyên', 'Phú Thọ']
+  const [detail, setDetail] = useState('')
   const [region, setRegion] = useState(regions[0])
 
   const getGps = () => {
@@ -36,10 +37,10 @@ export function Submit({ setGps }) {
         onSubmit={e => {
           e.preventDefault()
         }}>
-        <label htmlFor="input" className="text-slate-400 font-bold">
+        <label htmlFor="input" className="text-slate-900 font-bold">
           Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).
         </label>
-        <input id="input" className="w-full px-3 py-2 rounded border " placeholder="Nhập thông tin cứu hộ" />
+        <input value={detail} onChange={e => setDetail(e.target.val)} id="input" className="w-full px-3 py-2 rounded border " placeholder="Nhập thông tin cứu hộ" />
         <div className="py-2" />
         <div>Khu vực bạn ở?</div>
         <div className="flex space-x-4 flex-wrap">
