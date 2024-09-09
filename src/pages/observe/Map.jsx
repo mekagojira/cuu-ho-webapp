@@ -1,4 +1,4 @@
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { MapContainer, Marker, Popup, TileLayer, useMap } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import { useEffect, useState } from 'react'
 
@@ -11,6 +11,16 @@ function getWindowDimensions() {
 }
 
 export default function Map({ gps }) {
+  const map = useMap()
+
+  const myGps = gps?.x && gps?.y ? [gps.x, gps.y] : null
+
+  useEffect(() => {
+    if (gps?.x && gps?.y) {
+      map.setView([gps.x, gps.y], map.getZoom())
+    }
+  }, [gps])
+
   const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions())
 
   useEffect(() => {
@@ -21,8 +31,6 @@ export default function Map({ gps }) {
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
-
-  const myGps = gps?.x && gps?.y ? [gps.x, gps.y] : null
 
   return (
     <div className="container mx-auto p-1">
