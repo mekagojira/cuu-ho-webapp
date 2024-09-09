@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {submitHelps} from "../../lib/request/request.js";
+import { submitHelps } from '../../lib/request/request.js'
 
 const elderlyOrDisabled = ['Trẻ em', 'Người già | Người khuyết tật']
 const assistanceNeeded = ['Tôi cần cứu hộ áo phao', 'Tôi cần cứu hộ thực phẩm', 'Tôi cần cứu hộ y tế']
@@ -65,8 +65,8 @@ export function Submit({ gps, setGps }) {
       note: detail,
       needing: [],
       location: {
-        coordinates: []
-      }
+        coordinates: [],
+      },
     }
     if (elderly['Trẻ em']) {
       payload.hasChild = true
@@ -86,7 +86,7 @@ export function Submit({ gps, setGps }) {
     if (gps?.x && gps?.y) {
       payload.location.coordinates = [gps?.x, gps?.y]
     }
-    const result = await submitHelps({...payload, needing: payload.needing?.join(',') || ''})
+    const result = await submitHelps({ ...payload, needing: payload.needing?.join(',') || '' })
   }
 
   return (
@@ -111,7 +111,7 @@ export function Submit({ gps, setGps }) {
           <h2 className="text-lg font-semibold mb-2">Có người già/người khuyết tật không:</h2>
           {elderlyOrDisabled.map((item, index) => (
             <div key={index} className="flex items-center mb-2">
-              <input type="checkbox" name={item} checked={elderly[item] || false} onChange={() => setElderly({ ...elderly, [item]: true })} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
+              <input type="checkbox" name={item} checked={elderly[item] || false} onChange={() => setElderly({ ...elderly, [item]: !elderly[item] })} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
               <label className="ml-2 text-gray-700">{item}</label>
             </div>
           ))}
@@ -121,7 +121,7 @@ export function Submit({ gps, setGps }) {
           <h2 className="text-lg font-semibold mb-2">Hỗ trợ cần thiết:</h2>
           {assistanceNeeded.map((item, index) => (
             <div key={index} className="flex items-center mb-2">
-              <input type="checkbox" name={item} checked={assists[item] || false} onChange={() => setAssists({ ...assists, [item]: true })} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
+              <input type="checkbox" name={item} checked={assists[item] || false} onChange={() => setAssists({ ...assists, [item]: !assists[item] })} className="w-5 h-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" />
               <label className="ml-2 text-gray-700">{item}</label>
             </div>
           ))}
