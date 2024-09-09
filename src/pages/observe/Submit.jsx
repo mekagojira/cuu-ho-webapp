@@ -73,7 +73,6 @@ export function Submit({ setGps }) {
         <Input i="phone1" v={phone1} onChange={setPhone1} label={'SĐT LIÊN HỆ 2'} placeholder={'Nhập SĐT LIÊN HỆ 2'} />
 
         <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} textarea />
-        <Input i="phone" v={detail} onChange={setDetail} label={'Nội dung cứu hộ'} placeholder={'Nội dung cứu hộ'} textarea />
 
         <div className="py-1">
           <h2 className="text-lg font-semibold mb-2">Có người già/người khuyết tật không:</h2>
@@ -94,20 +93,8 @@ export function Submit({ setGps }) {
             </div>
           ))}
         </div>
+        <Input i="phone" v={detail} onChange={setDetail} label={'Nội dung cứu hộ'} placeholder={'Nội dung cứu hộ'} textarea />
 
-        <div className="py-2" />
-        <div>Khu vực bạn ở?</div>
-        <div className="flex space-x-4 flex-wrap">
-          {regions.map((item, i) => (
-            <div key={i} className="py-1">
-              <button className={classNames('font-bold rounded uppercase px-3 py-2 border', region === item ? 'bg-red-500 border-red-500 text-white' : 'bg-white text-black border-slate-500')} onClick={() => setRegion(item)}>
-                {item}
-              </button>
-            </div>
-          ))}
-          <input placeholder="Nhập khu vực của bạn" className="px-3 py-2 rounded border border-slate-500" />
-        </div>
-        <div className="py-1" />
         <div>
           <button onClick={getGps} className="rounded font-bold px-3 py-2 bg-slate-200">
             LẤY THÔNG TIN TỌA ĐỘ
