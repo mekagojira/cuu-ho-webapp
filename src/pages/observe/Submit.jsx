@@ -54,8 +54,8 @@ export function Submit({ setGps }) {
         onSubmit={e => {
           e.preventDefault()
         }}>
-        <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} textarea />
         <Input i="phone" v={phone} onChange={setPhone} label={'SĐT LIÊN HỆ'} placeholder={'Nhập SĐT LIÊN HỆ'} />
+        <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} textarea />
         <Input i="phone" v={detail} onChange={setDetail} label={'Nội dung cứu hộ'} placeholder={'Nội dung cứu hộ'} textarea />
 
         <div className="py-2" />
