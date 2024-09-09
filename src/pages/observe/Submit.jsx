@@ -1,13 +1,17 @@
 import classNames from 'classnames'
 import { useState } from 'react'
 
-function Input({ v, onChange, i, label, placeholder }) {
+function Input({ v, onChange, i, label, placeholder, textarea }) {
   return (
     <div className="my-1">
       <label htmlFor={i} className="text-slate-900">
         {label}
       </label>
-      <input value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} />
+      {textarea ? (
+        <textarea value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} />
+      ) : (
+        <input value={v} onChange={e => onChange(e.target.val)} id={i} className="w-full px-3 py-2 rounded border " placeholder={placeholder || label || ''} />
+      )}
     </div>
   )
 }
@@ -50,9 +54,9 @@ export function Submit({ setGps }) {
         onSubmit={e => {
           e.preventDefault()
         }}>
-        <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} />
+        <Input i="detail" v={address} onChange={setAddress} label={'Địa chỉ cụ thể (số người , nước dâng cao tới đâu, nhà mấy tầng, mô tả địa chỉ).'} placeholder={'Nhập thông tin cứu hộ'} textarea />
         <Input i="phone" v={phone} onChange={setPhone} label={'SĐT LIÊN HỆ'} placeholder={'Nhập SĐT LIÊN HỆ'} />
-        <Input i="phone" v={detail} onChange={setDetail} label={'Nội dung cứu hộ'} placeholder={'Nội dung cứu hộ'} />
+        <Input i="phone" v={detail} onChange={setDetail} label={'Nội dung cứu hộ'} placeholder={'Nội dung cứu hộ'} textarea />
 
         <div className="py-2" />
         <div>Khu vực bạn ở?</div>
