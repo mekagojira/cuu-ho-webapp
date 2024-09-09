@@ -46,7 +46,7 @@ export default function Map({ gps }) {
   return (
     <div className="">
       <MapContainer center={myGps ? myGps : [21.574674568874638, 105.81164980996522]} zoom={13} scrollWheelZoom={false} style={{ width: windowDimensions.width * 1, height: windowDimensions.height * 0.75 }}>
-        <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>' url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" />{' '}
         <MapControl gps={gps} />
         {myGps && (
           <Marker position={myGps} icon={CurrentLocation}>
