@@ -61,7 +61,7 @@ export function Submit({ setGps }) {
   }
 
   return (
-    <div className="p-1">
+    <div className="px-2">
       <h1 className="font-bold text-3xl uppercase">congdongcuuho</h1>
       <div className="py-4" />
       <form

@@ -48,7 +48,7 @@ export default function List() {
   ]
 
   return (
-    <div className="py-4">
+    <div className="py-4 px-2">
       DANH SÁCH CỨU HỘ
       <Table head={tableHead} rows={tableRows} />
     </div>
