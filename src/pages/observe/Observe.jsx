@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Map from './Map'
 import { Submit } from './Submit'
 import List from './List'
+import {Link} from "react-router-dom";
 
 export default function Observe() {
   const [gps, setGps] = useState({})
@@ -13,10 +14,10 @@ export default function Observe() {
       </div>
       <div className="pt-8" />
       <Map gps={gps} setGps={setGps} />
-      <div className="pt-8" />
-      <div className="mx-auto container">
-        <List />
-      </div>
+      {/*<div className="pt-8" />*/}
+      {/*<div className="mx-auto container">*/}
+      {/*  <List />*/}
+      {/*</div>*/}
     </div>
   )
 }
