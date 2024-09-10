@@ -104,8 +104,8 @@ export function Submit({ gps, setGps }) {
           onSubmitForm()
         }}>
         <Input i="name1" v={name1} onChange={setName1} label={'Họ và tên 1'} placeholder={'Nhập Họ tên 1'}/>
-        <Input i="name2" v={name2} onChange={setName2} label={'Họ và tên 2'} placeholder={'Nhập Họ tên 1'}/>
         <Input i="phone1" v={phone1} onChange={setPhone1} label={'SĐT LIÊN HỆ 1'} placeholder={'Nhập SĐT LIÊN HỆ 1'}/>
+        <Input i="name2" v={name2} onChange={setName2} label={'Họ và tên 2'} placeholder={'Nhập Họ tên 2'}/>
         <Input i="phone2" v={phone2} onChange={setPhone2} label={'SĐT LIÊN HỆ 2'} placeholder={'Nhập SĐT LIÊN HỆ 2'}/>
         {/*<Input num i="qty" v={qty} onChange={setQty} label={'Số người cần hỗ trợ'} placeholder={'Số người cần hỗ trợ'} />*/}
 
