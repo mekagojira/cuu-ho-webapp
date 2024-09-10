@@ -1,4 +1,4 @@
-import {listArticles} from "../../lib/request/request.js";
+import {listArticles, updateStatus} from "../../lib/request/request.js";
 import {useEffect, useState} from "react";
 import {cn} from "../../utils/ui.js";
 import Map from "../observe/Map.jsx";
@@ -20,6 +20,17 @@ const ListHelps = () => {
     fetch()
   }, [])
   const [detail, setDetail] = useState(null)
+
+  const onChangeStatus = async (status, id) => {
+    await updateStatus(
+      {
+        status,
+      },
+      id
+    )
+    fetch()
+  }
+
   return (
     <div className="flex items-start justify-start flex-col gap-6 p-2">
       <div className="w-full relative">
@@ -80,17 +91,17 @@ const ListHelps = () => {
             <div className="flex items-center justify-between w-full gap-4">
               {
                 item?.status === 'waiting' && (
-                  <button className="p-4 bg-green-600 text-white w-full uppercase">Xác nhận</button>
+                  <button className="p-4 bg-green-600 text-white w-full uppercase" onClick={() => onChangeStatus('confirmed', item?._id)}>Xác nhận</button>
                 )
               }
               {
                 item?.status === 'confirmed' && (
-                  <button className="p-4 bg-orange-600 text-white w-full uppercase">Đang đến</button>
+                  <button className="p-4 bg-orange-600 text-white w-full uppercase" onClick={() => onChangeStatus('incomming', item?._id)}>Đang đến</button>
                 )
               }
               {
                 item?.status === 'incomming' && (
-                  <button className="p-4 bg-blue-400 text-white w-full uppercase">Đã cứu hộ</button>
+                  <button className="p-4 bg-blue-400 text-white w-full uppercase" onClick={() => onChangeStatus('saved', item?._id)}>Đã cứu hộ</button>
                 )
               }
               {
